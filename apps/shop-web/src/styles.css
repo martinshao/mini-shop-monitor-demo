@@ -1,0 +1,271 @@
+:root {
+  color: #17202a;
+  background: #f4f7f9;
+  font-family:
+    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+button {
+  min-height: 38px;
+  border: 1px solid #bfd0dc;
+  border-radius: 6px;
+  background: #ffffff;
+  color: #17202a;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 650;
+  padding: 0 14px;
+}
+
+button:hover {
+  border-color: #2d6cdf;
+  color: #154fb0;
+}
+
+.app-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-height: 64px;
+  padding: 0 32px;
+  border-bottom: 1px solid #d9e2ea;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(12px);
+}
+
+.brand {
+  border: 0;
+  background: transparent;
+  color: #102033;
+  font-size: 18px;
+  padding: 0;
+}
+
+nav {
+  display: flex;
+  gap: 8px;
+}
+
+.hero {
+  position: relative;
+  min-height: 520px;
+  overflow: hidden;
+  background: #102033;
+}
+
+.hero > img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.58;
+}
+
+.hero-copy {
+  position: relative;
+  width: min(760px, calc(100% - 48px));
+  padding: 116px 0 96px;
+  margin: 0 auto;
+  color: #ffffff;
+}
+
+.hero-copy h1,
+.section-heading h1,
+.section-heading h2,
+.detail-copy h1 {
+  margin: 0;
+  letter-spacing: 0;
+}
+
+.hero-copy h1 {
+  font-size: 58px;
+  line-height: 1.02;
+}
+
+.hero-copy p {
+  max-width: 620px;
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 24px;
+}
+
+.section {
+  width: min(1180px, calc(100% - 48px));
+  margin: 0 auto;
+  padding: 52px 0;
+}
+
+.section-heading {
+  display: grid;
+  gap: 10px;
+  max-width: 760px;
+  margin-bottom: 26px;
+}
+
+.section-heading h1,
+.section-heading h2 {
+  font-size: 34px;
+  line-height: 1.16;
+}
+
+.section-heading p {
+  margin: 0;
+  color: #5d6b78;
+  line-height: 1.6;
+}
+
+.eyebrow {
+  margin: 0;
+  color: #2d6cdf;
+  font-size: 12px;
+  font-weight: 760;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.product-grid,
+.scenario-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+}
+
+.product-card,
+.scenario-card,
+.state-panel {
+  border: 1px solid #d9e2ea;
+  border-radius: 8px;
+  background: #ffffff;
+}
+
+.product-card {
+  display: grid;
+  grid-template-rows: 190px 1fr;
+  overflow: hidden;
+}
+
+.product-card img {
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+  background: #d9e2ea;
+}
+
+.product-card > div,
+.scenario-card {
+  display: grid;
+  gap: 12px;
+  align-content: start;
+  padding: 16px;
+}
+
+.product-card h3,
+.scenario-card h3 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.product-card p,
+.scenario-card p {
+  margin: 0;
+  color: #5d6b78;
+  line-height: 1.5;
+}
+
+.product-meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  color: #102033;
+  font-weight: 720;
+}
+
+.detail-layout {
+  display: grid;
+  grid-template-columns: minmax(320px, 1fr) minmax(320px, 0.8fr);
+  gap: 34px;
+  width: min(1180px, calc(100% - 48px));
+  margin: 0 auto;
+  padding: 52px 0;
+}
+
+.detail-image {
+  width: 100%;
+  min-height: 460px;
+  border-radius: 8px;
+  object-fit: cover;
+  background: #d9e2ea;
+}
+
+.detail-copy {
+  display: grid;
+  gap: 18px;
+  align-content: center;
+}
+
+.detail-copy p {
+  margin: 0;
+  color: #5d6b78;
+  line-height: 1.7;
+}
+
+.lab-layout {
+  display: grid;
+  gap: 22px;
+}
+
+.state-panel {
+  padding: 22px;
+  color: #3c4b59;
+}
+
+.error-state {
+  border-color: #ef9a9a;
+  background: #fff5f5;
+  color: #a12626;
+}
+
+.blank-screen {
+  min-height: calc(100vh - 64px);
+  background: #ffffff;
+}
+
+@media (max-width: 760px) {
+  .app-header,
+  nav {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .app-header {
+    padding: 14px 20px;
+  }
+
+  .hero-copy h1 {
+    font-size: 40px;
+  }
+
+  .detail-layout {
+    grid-template-columns: 1fr;
+  }
+}

@@ -34,6 +34,8 @@ Acceptance:
 
 ## Stage 2: Business Experiment Surface
 
+Status: done
+
 Deliverables:
 
 - `apps/shop-web` runnable web app

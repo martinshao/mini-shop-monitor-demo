@@ -121,6 +121,24 @@ error.blank_screen
 pnpm install
 ```
 
+同时启动 C 端商城和 Mock API：
+
+```bash
+pnpm dev
+```
+
+单独启动 C 端商城：
+
+```bash
+pnpm dev:shop
+```
+
+单独启动 Mock API：
+
+```bash
+pnpm dev:api
+```
+
 类型检查：
 
 ```bash
@@ -153,7 +171,7 @@ pnpm test
 
 ### 阶段 1：业务实验场
 
-计划实现：
+已完成：
 
 - `apps/shop-web`
 - `apps/mock-api`
@@ -162,6 +180,33 @@ pnpm test
 - 商品详情页
 - 故障实验页
 - 可控慢接口、失败接口、异常数据和大列表数据
+
+本地访问地址：
+
+```txt
+Shop Web: http://localhost:3000
+Mock API: http://localhost:4100
+```
+
+Mock API 支持的基础接口：
+
+```txt
+GET /api/health
+GET /api/home
+GET /api/products
+GET /api/products/:id
+```
+
+Mock API 支持的故障参数：
+
+```txt
+delay=2000
+status=500
+status=404
+large=true
+brokenImage=true
+malformed=true
+```
 
 ### 阶段 2：SDK 最小采集能力
 

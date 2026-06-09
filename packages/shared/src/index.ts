@@ -35,3 +35,42 @@ export type MonitorEventPayload = Omit<MonitorEvent, "id" | "timestamp"> & {
 export const DEFAULT_APP_ID = "mini-shop-web";
 export const DEFAULT_ENV: MonitorEnvironment = "local";
 export const DEFAULT_RELEASE = "0.1.0";
+
+export type ProductCategory = "apparel" | "drinkware" | "accessory" | "device";
+
+export type Product = {
+  id: string;
+  title: string;
+  subtitle: string;
+  category: ProductCategory;
+  price: number;
+  rating: number;
+  imageUrl: string;
+  description: string;
+};
+
+export type HomePayload = {
+  heroTitle: string;
+  heroSubtitle: string;
+  heroImageUrl: string;
+  featuredProducts: Product[];
+};
+
+export type ProductListPayload = {
+  products: Product[];
+  total: number;
+  scenario: FaultScenario;
+};
+
+export type ProductDetailPayload = {
+  product: Product;
+  relatedProducts: Product[];
+  scenario: FaultScenario;
+};
+
+export type FaultScenario = {
+  delayMs: number;
+  large: boolean;
+  brokenImage: boolean;
+  malformed: boolean;
+};

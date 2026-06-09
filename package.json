@@ -5,6 +5,9 @@
   "description": "A lightweight C-side shop sandbox for validating frontend monitoring SDK collection, ingestion, storage, and console display.",
   "type": "module",
   "scripts": {
+    "dev": "pnpm --parallel --filter @mini-shop-monitor/mock-api --filter @mini-shop-monitor/shop-web dev",
+    "dev:shop": "pnpm --filter @mini-shop-monitor/shop-web dev",
+    "dev:api": "pnpm --filter @mini-shop-monitor/mock-api dev",
     "build": "pnpm -r build",
     "typecheck": "pnpm -r typecheck",
     "test": "pnpm -r test"
