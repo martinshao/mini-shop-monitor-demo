@@ -1,0 +1,16 @@
+{
+  "name": "mini-shop-monitor-demo",
+  "version": "0.1.0",
+  "private": true,
+  "description": "A lightweight C-side shop sandbox for validating frontend monitoring SDK collection, ingestion, storage, and console display.",
+  "type": "module",
+  "scripts": {
+    "build": "pnpm -r build",
+    "typecheck": "pnpm -r typecheck",
+    "test": "pnpm -r test"
+  },
+  "devDependencies": {
+    "typescript": "^5.8.3"
+  },
+  "packageManager": "pnpm@11.5.2"
+}
