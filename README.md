@@ -63,13 +63,30 @@ packages/
 ```txt
 .
 ├── apps/
+│   ├── mock-api/
+│   ├── monitor-collector/
+│   ├── monitor-console/
+│   └── shop-web/
+├── docs/
 ├── packages/
+│   ├── monitor-sdk/
 │   └── shared/
 ├── package.json
 ├── pnpm-lock.yaml
 ├── pnpm-workspace.yaml
 └── tsconfig.base.json
 ```
+
+## 项目文档
+
+为了方便 Codex 和开发者快速恢复上下文，项目文档按用途拆分：
+
+- `.codex/PROJECT_CONTEXT.md`：Codex 重新进入项目时优先阅读的精简上下文
+- `docs/design/project-design.md`：项目整体设计方案
+- `docs/development/engineering-guide.md`：通用开发规范、最佳实践和验收标准
+- `docs/modules/module-design.md`：monorepo 各应用和包的职责边界
+- `docs/plans/implementation-plan.md`：分阶段、可执行的实践计划
+- `docs/README.md`：文档索引
 
 ## 共享事件协议
 

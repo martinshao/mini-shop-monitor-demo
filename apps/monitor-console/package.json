@@ -1,0 +1,14 @@
+{
+  "name": "@mini-shop-monitor/monitor-console",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "tsc -p tsconfig.json --noEmit"
+  },
+  "dependencies": {
+    "@mini-shop-monitor/shared": "workspace:*"
+  }
+}
