@@ -53,6 +53,8 @@ Acceptance:
 
 ## Stage 3: SDK Minimum Collection
 
+Status: done
+
 Deliverables:
 
 - SDK initialization

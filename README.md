@@ -210,10 +210,11 @@ malformed=true
 
 ### 阶段 2：SDK 最小采集能力
 
-计划实现：
+已完成：
 
 - SDK 初始化
-- 测试事件上报
+- 事件创建
+- 事件上报
 - 页面性能采集
 - API 耗时采集
 - API 失败采集
@@ -221,6 +222,26 @@ malformed=true
 - Promise Error 采集
 - 资源失败采集
 - 白屏检测
+
+当前 SDK 会先把事件缓存在内存中，并尝试上报到 `collectorUrl`。在采集服务完成前，可以通过浏览器控制台查看 debug 日志，或调用：
+
+```ts
+window.__MONITOR_DEBUG__?.getBufferedEvents?.()
+```
+
+也可以读取最近 100 条 debug 事件：
+
+```ts
+JSON.parse(localStorage.getItem("__MINI_SHOP_MONITOR_EVENTS__") ?? "[]")
+```
+
+在 debug 模式下，SDK 还会把便于自动化验收的事件状态写到页面根节点：
+
+```ts
+document.documentElement.dataset.monitorEventCount
+document.documentElement.dataset.monitorEventTypes
+document.documentElement.dataset.monitorLatestEvent
+```
 
 ### 阶段 3：采集服务与数据存储
 

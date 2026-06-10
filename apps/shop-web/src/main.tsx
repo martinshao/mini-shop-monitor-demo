@@ -231,6 +231,7 @@ function ProductDetailPage({ id }: { id: string }) {
 function LabPage() {
   const [result, setResult] = useState("Choose a scenario to trigger.");
   const [blank, setBlank] = useState(false);
+  const [brokenImageUrl, setBrokenImageUrl] = useState<string | null>(null);
 
   const scenarios = useMemo(
     () =>
@@ -258,7 +259,18 @@ function LabPage() {
         {
           label: "Broken images",
           expected: "error.resource",
-          run: () => runApiScenario({ brokenImage: true })
+          run: async () => {
+            const payload = await getProducts({ brokenImage: true });
+            const product = payload.products.find((item) =>
+              item.imageUrl.includes("/assets/missing-")
+            );
+
+            setBrokenImageUrl(
+              product?.imageUrl ?? `http://localhost:4100/assets/missing-lab.png`
+            );
+
+            return "Inserted a broken image into the lab page.";
+          }
         }
       ] satisfies Array<{
         label: string;
@@ -343,6 +355,9 @@ function LabPage() {
       </div>
 
       <div className="state-panel">{result}</div>
+      {brokenImageUrl && (
+        <img className="lab-broken-image" src={brokenImageUrl} alt="Broken lab resource" />
+      )}
     </main>
   );
 }
