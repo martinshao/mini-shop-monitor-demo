@@ -73,11 +73,13 @@ Acceptance:
 
 ## Stage 4: Collector and Storage
 
+Status: done
+
 Deliverables:
 
 - `monitor-collector` service
 - Event ingestion endpoint
-- SQLite storage
+- PostgreSQL storage
 - Event query endpoints
 - Basic aggregation endpoints
 

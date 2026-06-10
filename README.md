@@ -157,6 +157,29 @@ pnpm build
 pnpm test
 ```
 
+启动监控采集服务：
+
+```bash
+pnpm dev:collector
+```
+
+本地 PostgreSQL 开发库配置：
+
+```txt
+Host: localhost
+Port: 5432
+Database: app_dev
+User: dev
+Password: dev123456
+SSL: Disabled
+```
+
+默认连接串：
+
+```txt
+postgres://dev:dev123456@localhost:5432/app_dev
+```
+
 ## 阶段规划
 
 ### 阶段 0：项目初始化
@@ -245,13 +268,34 @@ document.documentElement.dataset.monitorLatestEvent
 
 ### 阶段 3：采集服务与数据存储
 
-计划实现：
+已完成：
 
 - `apps/monitor-collector`
 - `POST /api/events`
-- SQLite 入库
+- PostgreSQL 入库
 - 基础查询接口
 - 总览统计接口
+
+Collector 默认运行在：
+
+```txt
+http://localhost:4000
+```
+
+已支持接口：
+
+```txt
+GET /api/health
+POST /api/events
+GET /api/events
+GET /api/overview
+GET /api/performance
+GET /api/errors
+GET /api/apis
+DELETE /api/events
+```
+
+启动时会自动创建 `monitor_events` 表和查询索引。
 
 ### 阶段 4：监控控制台
 

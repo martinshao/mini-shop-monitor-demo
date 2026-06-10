@@ -50,7 +50,7 @@ Responsibilities:
 - Receive SDK events.
 - Validate the basic event shape.
 - Classify event types.
-- Store events locally.
+- Store events in local PostgreSQL.
 - Provide query endpoints for the console.
 
 First planned endpoints:
