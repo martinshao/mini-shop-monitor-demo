@@ -9,6 +9,7 @@
     "dev:shop": "pnpm --filter @mini-shop-monitor/shop-web dev",
     "dev:api": "pnpm --filter @mini-shop-monitor/mock-api dev",
     "dev:collector": "pnpm --filter @mini-shop-monitor/monitor-collector dev",
+    "dev:console": "pnpm --filter @mini-shop-monitor/monitor-console dev",
     "build": "pnpm -r build",
     "typecheck": "pnpm -r typecheck",
     "test": "pnpm -r test"

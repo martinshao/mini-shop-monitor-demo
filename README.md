@@ -163,6 +163,12 @@ pnpm test
 pnpm dev:collector
 ```
 
+启动监控控制台：
+
+```bash
+pnpm dev:console
+```
+
 本地 PostgreSQL 开发库配置：
 
 ```txt
@@ -299,13 +305,25 @@ DELETE /api/events
 
 ### 阶段 4：监控控制台
 
-计划实现：
+已完成：
 
 - `apps/monitor-console`
 - 总览视图
 - 性能视图
 - 接口视图
 - 稳定性视图
+
+控制台默认运行在：
+
+```txt
+http://localhost:3200
+```
+
+控制台通过 Vite 代理访问 collector：
+
+```txt
+/api -> http://localhost:4000
+```
 
 ## 设计原则
 

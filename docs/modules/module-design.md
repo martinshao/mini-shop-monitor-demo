@@ -84,6 +84,10 @@ First planned views:
 - API
 - Stability
 
+Default local URL:
+
+- `http://localhost:3200`
+
 ## packages/monitor-sdk
 
 Role:

@@ -91,6 +91,8 @@ Acceptance:
 
 ## Stage 5: Monitoring Console
 
+Status: done
+
 Deliverables:
 
 - `monitor-console` web app
