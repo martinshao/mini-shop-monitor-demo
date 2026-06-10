@@ -38,6 +38,7 @@ export type ResolvedMonitorOptions = {
 export function resolveMonitorOptions(
   options: MonitorInitOptions
 ): ResolvedMonitorOptions {
+  // Config 层统一完成默认值合并，Core 和 Collector 后续只消费已解析配置。
   return {
     appId: options.appId ?? DEFAULT_MONITOR_OPTIONS.appId,
     env: options.env ?? DEFAULT_MONITOR_OPTIONS.env,
@@ -62,6 +63,7 @@ export function resolveMonitorOptions(
 }
 
 export function shouldSample(sampleRate: number) {
+  // sampleRate=1 表示全量采集；小于 1 时按概率采样。
   return sampleRate >= 1 || Math.random() <= sampleRate;
 }
 
@@ -70,6 +72,7 @@ export function isUrlAllowed(
   allowUrls: UrlPattern[],
   denyUrls: UrlPattern[]
 ) {
+  // deny 优先级高于 allow，避免敏感或内部接口被误采集。
   if (denyUrls.some((pattern) => matchesUrlPattern(url, pattern))) {
     return false;
   }

@@ -41,6 +41,7 @@ export type EventProcessor = {
 export function createEventProcessor(
   options: ResolvedMonitorOptions
 ): EventProcessor {
+  // Processor 是 raw record 到标准 MonitorEvent 的唯一入口，统一做类型映射、字段补齐和脱敏。
   return {
     fromRaw(record) {
       return createEventFromPayload(options, {
@@ -77,6 +78,7 @@ function createEventFromPayload(
     data: Record<string, unknown>;
   }
 ): MonitorEvent {
+  // 标准事件模型在这里收口，确保 collector/console 看到的字段结构稳定。
   return {
     id: payload.id ?? createEventId(),
     appId: payload.appId ?? options.appId,
@@ -96,6 +98,7 @@ function mapRawKindToEventType(
   data: Record<string, unknown>
 ): MonitorEventType {
   if (kind === "api") {
+    // API 原始记录通过 ok 字段派生性能事件或错误事件。
     return data.ok === false
       ? MONITOR_EVENT_TYPES.ERROR_API
       : MONITOR_EVENT_TYPES.PERFORMANCE_API;

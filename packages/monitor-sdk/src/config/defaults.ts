@@ -7,6 +7,7 @@ import {
 export const SDK_VERSION = "0.1.0";
 export const DEBUG_STORAGE_KEY = "__MINI_SHOP_MONITOR_EVENTS__";
 
+// 默认配置集中在 Config 层，保证 Core 初始化逻辑不散落默认值。
 export const DEFAULT_MONITOR_OPTIONS = {
   appId: DEFAULT_APP_ID,
   env: DEFAULT_ENV,
@@ -17,6 +18,7 @@ export const DEFAULT_MONITOR_OPTIONS = {
   allowUrls: [],
   denyUrls: [],
   flush: {
+    // 当前实现仍是 immediate；batch 配置先保留，给后续批量上报升级留接口。
     strategy: "immediate",
     batchSize: 10,
     intervalMs: 5000

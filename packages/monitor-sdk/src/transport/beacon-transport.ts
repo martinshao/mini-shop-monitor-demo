@@ -7,6 +7,7 @@ export function createBeaconTransport(
 ): Transport {
   return {
     async send(event) {
+      // 预留 sendBeacon 传输层：适合页面卸载时尽量补发，当前主链路仍使用 fetch transport。
       if (
         typeof navigator !== "undefined" &&
         typeof navigator.sendBeacon === "function"
