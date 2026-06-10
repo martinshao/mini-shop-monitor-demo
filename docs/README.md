@@ -23,6 +23,7 @@ Records common development rules, best practices, validation commands, commit st
 ## Module-Level Design
 
 - `docs/modules/module-design.md`
+- `docs/modules/monitor-sdk-architecture.md`
 
 Records the responsibilities and boundaries of each app and package in the monorepo.
 

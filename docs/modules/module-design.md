@@ -106,6 +106,20 @@ Responsibilities:
 - Detect blank screens.
 - Report events to the collector.
 
+Internal architecture:
+
+- Core
+- Config
+- Collectors
+- Processor
+- Storage
+- Transport
+- Channel
+
+Detailed reference:
+
+- `docs/modules/monitor-sdk-architecture.md`
+
 ## packages/shared
 
 Role:
