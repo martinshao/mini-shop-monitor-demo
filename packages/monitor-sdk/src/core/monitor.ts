@@ -15,6 +15,7 @@ import { createEventProcessor, type EventProcessor } from "../processor/event-pr
 import { createMemoryStorage } from "../storage/memory-storage";
 import { getDebugStorageKey, syncDebugStorage } from "../storage/debug-storage";
 import type { EventStorage } from "../storage/event-storage";
+import { createBatchTransport } from "../transport/batch-transport";
 import { createFetchTransport } from "../transport/fetch-transport";
 import type { Transport } from "../transport/transport";
 import { isBrowser } from "../utils/browser";
@@ -47,7 +48,11 @@ export function initMonitor(options: MonitorInitOptions) {
   const internalFetch = isBrowser() ? window.fetch.bind(window) : null;
   const storage = runtime?.storage ?? createMemoryStorage();
   const processor = createEventProcessor(resolvedOptions);
-  const transport = createFetchTransport(resolvedOptions, internalFetch);
+  const baseTransport = createFetchTransport(resolvedOptions, internalFetch);
+  const transport =
+    resolvedOptions.flush.strategy === "batch" && isBrowser()
+      ? createBatchTransport(resolvedOptions, baseTransport)
+      : baseTransport;
   const { collectors, blankScreenCollector } = createCollectors();
 
   runtime = {

@@ -18,9 +18,9 @@ export const DEFAULT_MONITOR_OPTIONS = {
   allowUrls: [],
   denyUrls: [],
   flush: {
-    // 当前实现仍是 immediate；batch 配置先保留，给后续批量上报升级留接口。
-    strategy: "immediate",
+    // 默认使用批量上报，减少频繁网络请求；仍可通过配置切回 immediate。
+    strategy: "batch",
     batchSize: 10,
-    intervalMs: 5000
+    intervalMs: 3000
   }
 } as const;

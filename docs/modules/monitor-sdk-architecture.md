@@ -1,6 +1,6 @@
 # Monitor SDK Architecture
 
-The SDK is organized as layered modules. The first refactor keeps runtime behavior equivalent while giving each responsibility a stable place to evolve.
+The SDK is organized as layered modules. The current runtime focuses on browser-side collection, standardized event processing, in-memory persistence, and non-blocking batched transport.
 
 ## Layers
 
@@ -39,7 +39,7 @@ Responsibilities:
 
 - Define defaults.
 - Merge user options.
-- Hold sampling, URL allow/deny lists, blank screen selectors, and flush strategy placeholders.
+- Hold sampling, URL allow/deny lists, blank screen selectors, and flush strategy options.
 
 ## Collectors
 
@@ -91,13 +91,17 @@ Files:
 
 - `transport/transport.ts`
 - `transport/fetch-transport.ts`
+- `transport/batch-transport.ts`
 - `transport/beacon-transport.ts`
 
 Responsibilities:
 
 - Send events to the collector.
 - Keep internal sender behavior separate from API collection.
-- Leave room for batch flush, retry, and sendBeacon strategy later.
+- Queue events and flush them in batches.
+- Prefer browser idle time for scheduled flushes.
+- Flush pending data before page hide.
+- Leave room for retry and sendBeacon strategy enhancement later.
 
 ## Channel
 
@@ -119,13 +123,14 @@ Collector captures raw record
   -> Processor creates MonitorEvent
   -> Storage stores event
   -> Debug storage updates local state
-  -> Transport sends event
+  -> Batch Transport queues event
+  -> Idle timer / batch size / page hide triggers flush
+  -> Fetch Transport posts event batch
 ```
 
 ## Current Non-Goals
 
 - IndexedDB queue
-- Batch flush
 - Retry backoff
 - BroadcastChannel leader election
 - Sourcemap parsing

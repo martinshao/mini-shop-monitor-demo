@@ -38,10 +38,16 @@ function collectNavigationMetrics(pageMetrics: Record<string, number>) {
 
   if (navigation) {
     Object.assign(pageMetrics, {
-      dns: roundDuration(navigation.domainLookupEnd - navigation.domainLookupStart),
+      dns: roundDuration(
+        navigation.domainLookupEnd - navigation.domainLookupStart
+      ),
       tcp: roundDuration(navigation.connectEnd - navigation.connectStart),
-      request: roundDuration(navigation.responseStart - navigation.requestStart),
-      response: roundDuration(navigation.responseEnd - navigation.responseStart),
+      request: roundDuration(
+        navigation.responseStart - navigation.requestStart
+      ),
+      response: roundDuration(
+        navigation.responseEnd - navigation.responseStart
+      ),
       domInteractive: roundDuration(navigation.domInteractive),
       domContentLoaded: roundDuration(
         navigation.domContentLoadedEventEnd - navigation.startTime
