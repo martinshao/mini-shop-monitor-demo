@@ -39,7 +39,7 @@ Status: done
 Deliverables:
 
 - `apps/shop-web` runnable web app
-- `apps/mock-api` runnable API service
+- `apps/mock-api` runnable NestJS API service backed by PostgreSQL
 - Home page
 - Product list page
 - Product detail page

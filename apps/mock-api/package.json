@@ -11,9 +11,16 @@
     "test": "tsc -p tsconfig.json --noEmit"
   },
   "dependencies": {
-    "@fastify/cors": "^11.2.0",
     "@mini-shop-monitor/shared": "workspace:*",
-    "fastify": "^5.8.5",
+    "@nestjs/common": "^11.1.26",
+    "@nestjs/core": "^11.1.26",
+    "@nestjs/platform-fastify": "^11.1.26",
+    "pg": "^8.21.0",
+    "reflect-metadata": "^0.2.2",
+    "rxjs": "^7.8.2",
     "tsx": "^4.22.4"
+  },
+  "devDependencies": {
+    "@types/pg": "^8.20.0"
   }
 }

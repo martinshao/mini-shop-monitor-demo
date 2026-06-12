@@ -49,7 +49,7 @@
 ```txt
 apps/
   shop-web              # 被监控的 C 端商城
-  mock-api              # 商品与故障模拟 API
+  mock-api              # 基于 NestJS + PostgreSQL 的商品与故障实验 API
   monitor-collector     # 监控数据采集服务
   monitor-console       # 监控分析控制台
 
@@ -121,7 +121,7 @@ error.blank_screen
 pnpm install
 ```
 
-同时启动 C 端商城和 Mock API：
+同时启动 C 端商城和 Shop API：
 
 ```bash
 pnpm dev
@@ -133,7 +133,7 @@ pnpm dev
 pnpm dev:shop
 ```
 
-单独启动 Mock API：
+单独启动 Shop API：
 
 ```bash
 pnpm dev:api
@@ -208,16 +208,17 @@ postgres://dev:dev123456@localhost:5432/app_dev
 - 商品列表页
 - 商品详情页
 - 故障实验页
+- PostgreSQL 商品数据
 - 可控慢接口、失败接口、异常数据和大列表数据
 
 本地访问地址：
 
 ```txt
 Shop Web: http://localhost:3000
-Mock API: http://localhost:4100
+Shop API: http://localhost:4100
 ```
 
-Mock API 支持的基础接口：
+Shop API 支持的基础接口：
 
 ```txt
 GET /api/health
@@ -226,7 +227,7 @@ GET /api/products
 GET /api/products/:id
 ```
 
-Mock API 支持的故障参数：
+Shop API 支持的故障参数：
 
 ```txt
 delay=2000

@@ -45,7 +45,7 @@ Out of scope for the first implementation:
 
 ```txt
 apps/shop-web
-apps/mock-api
+apps/mock-api            # NestJS shop API backed by local PostgreSQL
 apps/monitor-collector
 apps/monitor-console
 packages/monitor-sdk

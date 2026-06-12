@@ -13,7 +13,7 @@ Responsibilities:
 - Render the first-phase shop pages.
 - Trigger realistic performance and stability scenarios.
 - Initialize `monitor-sdk`.
-- Call `mock-api` for controllable product and fault data.
+- Call the NestJS shop API for PostgreSQL-backed product data and controllable fault scenarios.
 
 Planned pages:
 
@@ -27,11 +27,13 @@ Planned pages:
 Role:
 
 ```txt
-The controllable business API simulator.
+The NestJS business API for the shop experiment surface.
 ```
 
 Responsibilities:
 
+- Read product data from local PostgreSQL.
+- Create the `shop_products` table and seed default local products when needed.
 - Provide home, product list, and product detail data.
 - Provide controllable slow responses.
 - Provide controllable 4xx and 5xx responses.
