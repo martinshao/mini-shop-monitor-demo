@@ -1,9 +1,12 @@
-import { Controller, Get, Param, Query } from "@nestjs/common";
+import { Controller, Get, Inject, Param, Query } from "@nestjs/common";
 import { ProductsService, type ScenarioQuery } from "./products.service.js";
 
 @Controller("api")
 export class ProductsController {
-  constructor(private readonly productsService: ProductsService) {}
+  constructor(
+    @Inject(ProductsService)
+    private readonly productsService: ProductsService
+  ) {}
 
   @Get("home")
   getHome(@Query() query: ScenarioQuery) {

@@ -1,4 +1,9 @@
-import { HttpException, Injectable, NotFoundException } from "@nestjs/common";
+import {
+  HttpException,
+  Inject,
+  Injectable,
+  NotFoundException
+} from "@nestjs/common";
 import type {
   FaultScenario,
   HomePayload,
@@ -20,7 +25,10 @@ export type ScenarioQuery = {
 
 @Injectable()
 export class ProductsService {
-  constructor(private readonly productsRepository: ProductsRepository) {}
+  constructor(
+    @Inject(ProductsRepository)
+    private readonly productsRepository: ProductsRepository
+  ) {}
 
   async getHome(query: ScenarioQuery): Promise<HomePayload | Record<string, null>> {
     const scenario = parseFaultScenario(query);

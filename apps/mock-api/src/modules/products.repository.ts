@@ -1,4 +1,4 @@
-import { Injectable, OnModuleInit } from "@nestjs/common";
+import { Inject, Injectable, OnModuleInit } from "@nestjs/common";
 import type { Product, ProductCategory } from "@mini-shop-monitor/shared";
 import { DatabaseProvider } from "../shared/database.provider.js";
 
@@ -62,7 +62,10 @@ const SEED_PRODUCTS: Product[] = [
 
 @Injectable()
 export class ProductsRepository implements OnModuleInit {
-  constructor(private readonly database: DatabaseProvider) {}
+  constructor(
+    @Inject(DatabaseProvider)
+    private readonly database: DatabaseProvider
+  ) {}
 
   async onModuleInit() {
     await this.ensureSchema();
